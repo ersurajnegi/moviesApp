@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  test = 1;
+  checkBoxValue : boolean = true;
+  tabSelected(){
+    console.log('tab selected');
+    }
 }
