@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   test = 1;
+  movieFilter : string = 'upcoming';
   checkBoxValue : boolean = true;
-  tabSelected(){
-    console.log('tab selected');
+  tabSelected(tab){
+      this.movieFilter = tab;
     }
 }

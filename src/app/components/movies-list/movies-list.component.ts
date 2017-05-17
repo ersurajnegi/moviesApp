@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MovieService } from '../../service/movie.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { MovieService } from '../../service/movie.service';
   styleUrls: ['./movies-list.component.css']
 })
 export class MoviesListComponent implements OnInit {
-
+  @Input() filter: string;
   showLoader: boolean = false;
   data: Array<any> = null;
   constructor(private _movieService: MovieService) {
@@ -16,10 +16,15 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.getUpcomingMovies();
   }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['filter'].firstChange) { return; }
+    this.getUpcomingMovies();
+  }
 
   getUpcomingMovies() {
     this.showLoader = true;
-    this._movieService.getUpcomingMovies()
+    this.data = null;
+    this._movieService.getUpcomingMovies(this.filter)
       .subscribe(data => {
         this.data = data;
         console.log(this.data);
