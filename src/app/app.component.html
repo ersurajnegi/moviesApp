@@ -1,10 +1,8 @@
 <mz-navbar>
   <a href="#" class="brand-logo">Movies App</a>
 </mz-navbar>
-
-
-<div class="container">
-  <section>
+<div id="content">
+  <div class="container" style="height: calc(100% - 50px)">
     <div class="row ">
       <div class="col s12 m12 ">
         <ul class="tabs">
@@ -15,9 +13,9 @@
         </ul>
       </div>
     </div>
-  </section>
-  <div class="section">
-    <app-movies-list [filter]="movieFilter"></app-movies-list>
+      <app-movies-list [filter]="movieFilter"></app-movies-list>
+
   </div>
+
 
 </div>

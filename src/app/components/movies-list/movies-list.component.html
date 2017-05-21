@@ -1,7 +1,7 @@
 <mz-spinner *ngIf="showLoader;else movies_content" [color]="'red'" [size]="'big'">
 </mz-spinner>
 <ng-template #movies_content>
-  <div class="row">
+  <div class="row test">
     <div class="col s12 m6 l4" *ngFor="let movie of data.results">
       <app-list-item [movieData]="movie"></app-list-item>
     </div>
