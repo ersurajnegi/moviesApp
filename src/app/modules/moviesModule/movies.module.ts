@@ -4,14 +4,13 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterializeModule } from 'ng2-materialize';
-import { ListItemComponent } from './components/list-item/list-item.component';
-import {MoviesListComponent} from './components/movies-list/movies-list.component';
 import { MovieService } from './service/movie.service';
 
+import * as index from './index';
 @NgModule({
-    declarations :[ListItemComponent,MoviesListComponent],
+    declarations :[index.ListItemComponent , index.MoviesListComponent],
     imports: [CommonModule,MaterializeModule.forRoot(), moviesRoute],
-    exports: [ListItemComponent, MoviesListComponent, MaterializeModule],
+    exports: [index.ListItemComponent, index.MoviesListComponent, MaterializeModule],
     providers: [MovieService]
 })
 export class MoviesModule{
