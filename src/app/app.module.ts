@@ -1,27 +1,24 @@
+import { RouterModule } from '@angular/router';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
 
-import { MaterializeModule } from 'ng2-materialize';
 
+import { MoviesModule } from './modules/moviesModule/movies.module';
 import { AppComponent } from './app.component';
-import { MoviesListComponent } from './components/movies-list/movies-list.component';
-import { ListItemComponent } from './Components/list-item/list-item.component';
-import { MovieService } from './service/movie.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MoviesListComponent,
-    ListItemComponent
-  ],
+    AppComponent ],
   imports: [
     BrowserModule,
     HttpModule,
-    MaterializeModule.forRoot(),
+    RouterModule,
+    MoviesModule
   ],
-  providers: [MovieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

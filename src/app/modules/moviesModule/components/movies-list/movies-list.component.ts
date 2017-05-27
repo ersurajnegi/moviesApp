@@ -7,7 +7,6 @@ import { MovieService } from '../../service/movie.service';
   styleUrls: ['./movies-list.component.css']
 })
 export class MoviesListComponent implements OnInit {
-  @Input() filter: string;
   showLoader: boolean = false;
   data: Array<any> = null;
   constructor(private _movieService: MovieService) {
@@ -16,22 +15,20 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.getUpcomingMovies();
   }
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['filter'].firstChange) { return; }
-    this.getUpcomingMovies();
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (changes['filter'].firstChange) { return; }
+  //   this.getUpcomingMovies();
+  // }
 
   getUpcomingMovies() {
     this.showLoader = true;
     this.data = null;
-    this._movieService.getUpcomingMovies(this.filter)
+    this._movieService.getUpcomingMovies()
       .subscribe(data => {
         this.data = data;
-        console.log(this.data);
         this.showLoader = false;
       },
       error => {
-        console.error(error);
         this.showLoader = false;
       });
 

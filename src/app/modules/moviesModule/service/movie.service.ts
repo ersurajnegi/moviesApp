@@ -5,16 +5,16 @@ import 'rxjs/add/operator/map';
 import { Http, Response }          from '@angular/http';
 
 
-import * as api from '../apiInfo/apiInfo';
+import * as api from '../../../apiInfo/apiInfo';
 
 @Injectable()
 export class MovieService {
 
   constructor(private _http: Http) { }
 
-  getUpcomingMovies(filter){
+  getUpcomingMovies(){
    
-      return this._http.get(api.apiUrl[filter]+'?api_key='+api.apiKey)
+      return this._http.get(api.apiUrl['upcoming']+'?api_key='+api.apiKey)
               .map(this.extractData)
               .catch(this.handleError);
   }
