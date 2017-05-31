@@ -19,3 +19,6 @@ app-movies-list
 {
     height: 100%;
 }
+.active {
+        border-bottom: 1px solid;
+}

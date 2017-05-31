@@ -4,7 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 const routes : Routes = [
     {path:"movies", component: MoviesListComponent},
-    {path:"**", redirectTo: 'movies', pathMatch: "full"}
+    {path:"movies/:type", component: MoviesListComponent}
 ]
 
-export const moviesRoute  = RouterModule.forRoot(routes);
+export const moviesRoute  = RouterModule.forChild(routes, );

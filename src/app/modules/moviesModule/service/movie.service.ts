@@ -12,9 +12,9 @@ export class MovieService {
 
   constructor(private _http: Http) { }
 
-  getUpcomingMovies(){
+  getUpcomingMovies(type){
    
-      return this._http.get(api.apiUrl['upcoming']+'?api_key='+api.apiKey)
+      return this._http.get(api.apiUrl[type]+'?api_key='+api.apiKey)
               .map(this.extractData)
               .catch(this.handleError);
   }
